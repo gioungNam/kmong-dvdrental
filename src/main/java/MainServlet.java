@@ -31,11 +31,18 @@ public class MainServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 제목 검색
+		String searchTitle = request.getParameter("searchTitle");
 		// DVD 리스트를 DAO를 통해 가져옴
         DVDDAO dvdDao = new DVDDAO();
-        List<DVD> dvdList = dvdDao.getAllDVDs();
+        List<DVD> dvdList;
         
-        System.out.println(dvdList);
+        // 특정 타이틀 검색
+        if (searchTitle != null && !searchTitle.trim().isEmpty()) {
+            dvdList = dvdDao.searchDVDsByTitle(searchTitle);
+        } else {
+            dvdList = dvdDao.getAllDVDs();  // 검색어가 없으면 전체 목록 조회
+        }
         
         // DVD 리스트를 JSP로 전달
         request.setAttribute("dvdList", dvdList);

@@ -35,7 +35,7 @@
         </nav>
 
         <!-- DVD 검색 -->
-        <form method="get" action="main" class="form-inline">
+        <form method="get" action="./" class="form-inline">
             <div class="form-group mb-2">
                 <input type="text" class="form-control" name="searchTitle" placeholder="DVDのタイトルを検索">
             </div>
@@ -44,7 +44,7 @@
         
 
         <!-- DVD 리스트 테이블 -->
-        <form method="post" action="main">
+        <form method="post" action="rent">
             <div class="table-wrapper">
                 <table class="table table-bordered table-striped">
                     <thead class="thead-dark">
@@ -76,6 +76,13 @@
                     </tbody>
                 </table>
             </div>
+            
+            <!-- 회원 ID 입력 -->
+		    <div class="form-group mt-3">
+		        <label for="memberId">회원 ID</label>
+		        <input type="text" class="form-control" id="memberId" name="memberId" placeholder="회원 ID를 입력하세요" required>
+		    </div>
+		    
             <button type="submit" class="btn btn-success custom-button">レンタル</button>
         </form>
     </div>

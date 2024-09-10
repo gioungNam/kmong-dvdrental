@@ -10,6 +10,7 @@ import java.util.List;
 import config.DatabaseConnection;
 
 public class DVDDAO {
+	
 	// 모든 DVD를 조회하는 메서드
     public List<DVD> getAllDVDs() {
         List<DVD> dvdList = new ArrayList<>();

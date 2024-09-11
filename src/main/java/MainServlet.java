@@ -53,16 +53,7 @@ public class MainServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 대출 기능 처리 로직
-        String[] selectedDVDs = request.getParameterValues("dvdCheckbox");
-        
-        if (selectedDVDs != null) {
-            DVDDAO dvdDao = new DVDDAO();
-            for (String dvdId : selectedDVDs) {
-                dvdDao.rentDVD(Integer.parseInt(dvdId));
-            }
-        }
-        response.sendRedirect("main");
+		
 	}
 
 }

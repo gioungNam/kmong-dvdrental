@@ -78,4 +78,55 @@ public class DVDDAO {
             e.printStackTrace();
         }
     }
+    
+ // DVD 삭제 메서드
+    public void deleteDVD(int dvdId) {
+        String query = "DELETE FROM dvd23 WHERE id = ?";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+
+            statement.setInt(1, dvdId);
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+	public void insertDVD(String title, String genre, String leadActor) {
+		String query = "INSERT INTO dvd23 (title, genre, lead_actor, is_rented) VALUES (?, ?, ?, FALSE)";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+
+            statement.setString(1, title);
+            statement.setString(2, genre);
+            statement.setString(3, leadActor);
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+		
+	}
+
+	public boolean isTitleDuplicated(String title) {
+		String query = "SELECT COUNT(*) FROM dvd23 WHERE title = ?";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+
+            statement.setString(1, title);
+            try (ResultSet rs = statement.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;  // 제목이 존재하면 true 반환
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+	}
 }

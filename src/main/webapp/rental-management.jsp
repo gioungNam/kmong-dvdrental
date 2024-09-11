@@ -31,7 +31,7 @@
         <nav class="nav tabs">
             <a class="nav-link btn btn-outline-primary" href="./">メインページ</a>
             <a class="nav-link btn btn-outline-primary" href="member">会員管理</a>
-            <a class="nav-link btn btn-outline-primary" href="dvd-management.jsp">DVD管理</a>
+            <a class="nav-link btn btn-outline-primary" href="dvd">DVD管理</a>
         </nav>
 
         <!-- 렌탈 이력 테이블 -->

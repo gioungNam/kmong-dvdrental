@@ -112,4 +112,24 @@ public class RentalDAO {
 
 		
 	}
+	
+	// DVD가 현재 렌탈 중인지 확인하는 메서드
+    public boolean isDvdCurrentlyRented(int dvdId) {
+        String query = "SELECT COUNT(*) FROM rental_detail23 WHERE dvd_id = ? AND is_returned = FALSE";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, dvdId);
+
+            try (ResultSet rs = statement.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;  // 렌탈 중인 이력이 있으면 true 반환
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
 }

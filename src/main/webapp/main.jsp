@@ -29,8 +29,8 @@
     <div class="container">
         <!-- 상단 탭 -->
         <nav class="nav tabs">
-            <a class="nav-link btn btn-outline-primary" href="member-management.jsp">会員管理</a>
-            <a class="nav-link btn btn-outline-primary" href="rental-management.jsp">レンタル管理</a>
+            <a class="nav-link btn btn-outline-primary" href="member">会員管理</a>
+            <a class="nav-link btn btn-outline-primary" href="rent">レンタル管理</a>
         	<a class="nav-link btn btn-outline-primary" href="dvd-management.jsp">DVD管理</a>
         </nav>
 
@@ -79,8 +79,8 @@
             
             <!-- 회원 ID 입력 -->
 		    <div class="form-group mt-3">
-		        <label for="memberId">회원 ID</label>
-		        <input type="text" class="form-control" id="memberId" name="memberId" placeholder="회원 ID를 입력하세요" required>
+		        <label for="memberId">会員ID</label>
+		        <input type="text" class="form-control" id="memberId" name="memberId" placeholder="会員IDを入力してください" required>
 		    </div>
 		    
             <button type="submit" class="btn btn-success custom-button">レンタル</button>

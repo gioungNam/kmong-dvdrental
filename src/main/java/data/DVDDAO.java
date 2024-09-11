@@ -14,7 +14,7 @@ public class DVDDAO {
 	// 모든 DVD를 조회하는 메서드
     public List<DVD> getAllDVDs() {
         List<DVD> dvdList = new ArrayList<>();
-        String query = "SELECT * FROM dvd";
+        String query = "SELECT * FROM dvd23";
         
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(query);
@@ -40,7 +40,7 @@ public class DVDDAO {
     // 제목으로 DVD를 검색하는 메서드
     public List<DVD> searchDVDsByTitle(String title) {
         List<DVD> dvdList = new ArrayList<>();
-        String query = "SELECT * FROM dvd WHERE title LIKE ?";
+        String query = "SELECT * FROM dvd23 WHERE title LIKE ?";
         
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
@@ -67,7 +67,7 @@ public class DVDDAO {
 
     // DVD 대출 상태를 업데이트하는 메서드
     public void rentDVD(int dvdId) {
-        String query = "UPDATE dvd SET is_rented = TRUE WHERE id = ?";
+        String query = "UPDATE dvd23 SET is_rented = TRUE WHERE id = ?";
         
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {

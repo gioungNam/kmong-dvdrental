@@ -22,13 +22,20 @@
         .custom-button {
             margin-top: 10px;
         }
+        
+        /* 선택된 탭에 대한 스타일 추가 */
+        .selected {
+            background-color: #007bff;
+            color: white;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <!-- 상단 탭 -->
-        <nav class="nav tabs">
+        <nav class="nav tabs"> 
+        	<a class="nav-link btn btn-outline-primary selected" href="./">メインページ</a>
             <a class="nav-link btn btn-outline-primary" href="member">会員管理</a>
             <a class="nav-link btn btn-outline-primary" href="rent">レンタル管理</a>
         	<a class="nav-link btn btn-outline-primary" href="dvd">DVD管理</a>
